@@ -16,7 +16,7 @@ from src.util.dao import DAO
 #     usercontrollerresult = sut.get_user_by_email(email="test@email.com")
 #     assert usercontrollerresult == {"person object"}
 
-
+@pytest.mark.unit
 @pytest.mark.parametrize(
     "input_email, return_value, output_expected",
     [

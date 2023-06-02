@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import patch, Mock, call
 from src.util.dao import DAO
 
-
+@pytest.mark.unit
 class TestCreate:
     @pytest.fixture
     def mock_collection(self):
