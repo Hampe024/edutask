@@ -28,8 +28,8 @@ jobs:
 
       - name: Unit Tests
         run: |
-          python -m pytest -m unit
+          python -m pytest -m unit -c backend/pytest.ini
 
       - name: Integration Tests
         run: |
-          python -m pytest -m integration
+          python -m pytest -m integration -c backend/pytest.ini
