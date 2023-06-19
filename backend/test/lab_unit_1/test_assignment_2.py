@@ -1,5 +1,3 @@
-
-
 from src.controllers.usercontroller import UserController
 import pytest
 import unittest.mock as mock
@@ -7,49 +5,30 @@ from unittest.mock import patch
 from src.util.dao import DAO
 
 
-# def test_get_user_by_email_old():
-#     mockedDAO = mock.MagicMock()
-#     mockedDAO.find.return_value = [{"person object"}]
-
-#     sut = UserController(dao=mockedDAO)
-
-#     usercontrollerresult = sut.get_user_by_email(email="test@email.com")
-#     assert usercontrollerresult == {"person object"}
-
 @pytest.mark.unit
 @pytest.mark.parametrize(
     "input_email, return_value, output_expected",
     [
         (
             "test@email.com",
-            [{"person object"}],
-            {"person object"}
-        ), # test basic functionality
-        (
-            "not an email",
-            [{"person object"}],
-            ValueError('Error: invalid email address')
-        ), # test error if not an email
-        # (
-        #     "test@email.com",
-        #     (),
-        #     TypeError("tuple index out of range") 
-        # ), # tests returning tuple as person object
-        # (
-        #     "test@email.com",
-        #     13,
-        #     TypeError("object of type 'int' has no len()")
-        # ), # tests returning integer as person object
-        (
-            13,
-            [{"person object"}],
-            "expected string or bytes-like object"
-        ), # test error email not a string
+            [],
+            None
+        ),
         (
             "test@email.com",
-            [{"person object"}, {"other person object"}],
-            {"person object"}
-        ) # tests returning first email applicable
+            [{"user object"}],
+            {"user object"}
+        ),
+        (
+            "test@email.com",
+            [{"user object"}, {"other user object"}],
+            {"user object"}
+        ),
+        (
+            "not an email",
+            [],
+            ValueError('Error: invalid email address')
+        ),
     ]
 )
 def test_get_user_by_email(input_email, return_value, output_expected):
