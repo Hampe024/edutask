@@ -1,0 +1,30 @@
+{
+    "$jsonSchema": 
+        {
+        "bsonType": "object",
+        "required": [
+                "name",
+                "email",
+                "bool"
+            ],
+        "properties": {
+            "name": {
+                "bsonType": "string",
+                "description": "users first- and lastname"
+            },
+            "gender": {
+                "bsonType": "string",
+                "description": "users gender (optional)"
+            },
+            "email": {
+                "bsonType": "string",
+                "description": "users email",
+                "uniqueItems": true
+            },
+            "bool": {
+                "bsonType": "bool",
+                "description": "true or false"
+            }
+        }
+    }
+}

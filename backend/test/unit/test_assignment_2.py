@@ -1,8 +1,6 @@
 from src.controllers.usercontroller import UserController
 import pytest
 import unittest.mock as mock
-from unittest.mock import patch
-from src.util.dao import DAO
 
 
 @pytest.mark.unit
@@ -61,12 +59,12 @@ def test_get_user_by_email(input_email, DAO_return_value, output_expected):
     [
         (
             "not an email",
-            [],
+            [{"user object"}],
             ValueError('Error: invalid email address')
         ),
         (
             "@.com",
-            [],
+            [{"user object"}],
             ValueError('Error: invalid email address')
         ),
     ]
